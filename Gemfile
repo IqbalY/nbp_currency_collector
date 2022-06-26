@@ -39,6 +39,12 @@ gem "bootsnap", require: false
 # Allows you to use other API's and provides responses from them
 gem 'httparty'
 
+#Use to write and deploy cron jobs
+gem 'whenever'
+
+#Use to convert datetime as per time-zones
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
