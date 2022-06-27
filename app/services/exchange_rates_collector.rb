@@ -4,7 +4,8 @@ class ExchangeRatesCollector
   EXCHANGE_RATES_SECONDARY_SOURCE_URL = "http://api.nbp.pl/api/exchangerates/tables/B".freeze
   INVALID_API_CODES                   = [400, 500, 404]
 
-  def initialize ; end
+  def initialize
+  end
 
   def process
     primary_source_data       = fetch_data_from_source(EXCHANGE_RATES_PRIMARY_SOURCE_URL)
@@ -29,7 +30,7 @@ class ExchangeRatesCollector
     collected_exchange_rates.each do |collected_exchange_rate|
       next if exchange_rate_already_present?(collected_exchange_rate)
       exchange_rate = ExchangeTable.new(
-                                        tab_type: ExchangeTable.tab_nums[collected_exchange_rate["table"].downcase], 
+                                        tab_type: ExchangeTable.tab_types[collected_exchange_rate["table"].downcase],
                                         published_at: collected_exchange_rate["effectiveDate"]
                                       )
       
@@ -42,7 +43,7 @@ class ExchangeRatesCollector
   def exchange_rate_already_present?(collected_exchange_rate)
     published_date  = collected_exchange_rate["effectiveDate"]
     tab_no          = collected_exchange_rate["table"].downcase
-    exchange_rate   = ExchangeTable.find_by(published_at: published_date, tab_type: ExchangeTable.tab_nums[tab_no])
+    exchange_rate   = ExchangeTable.find_by(published_at: published_date, tab_type: ExchangeTable.tab_types[tab_no])
     exchange_rate.present?
   end
 end

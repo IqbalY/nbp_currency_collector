@@ -45,6 +45,12 @@ gem 'whenever'
 #Use to convert datetime as per time-zones
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+#Use to ensure JSON:API-only implementation
+gem 'active_model_serializers'
+
+#Use to generate CSV file
+gem 'csv'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
