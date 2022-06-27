@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "7339e02b-5437-450f-a177-55c35e09967d",
+		"name": "NBP Exchange Rates Apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Exchange Rates - Table A",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.nbp.pl/api/exchangerates/tables/A/",
+					"protocol": "http",
+					"host": [
+						"api",
+						"nbp",
+						"pl"
+					],
+					"path": [
+						"api",
+						"exchangerates",
+						"tables",
+						"A",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exchange Rates - Table B",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.nbp.pl/api/exchangerates/tables/B",
+					"protocol": "http",
+					"host": [
+						"api",
+						"nbp",
+						"pl"
+					],
+					"path": [
+						"api",
+						"exchangerates",
+						"tables",
+						"B"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Exchange Rates - JSON/XML/CSV",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/exchange_rates?selected_data=2022-06-22&format=csv",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"exchange_rates"
+					],
+					"query": [
+						{
+							"key": "currency_code",
+							"value": "THB",
+							"disabled": true
+						},
+						{
+							"key": "selected_data",
+							"value": "2022-06-22",
+							"description": "Should be in defined format Eg: YYYY-MM-DD"
+						},
+						{
+							"key": "end",
+							"value": "2022-06-24",
+							"description": "Date should be in defined format Eg: YYYY-MM-DD",
+							"disabled": true
+						},
+						{
+							"key": "start",
+							"value": "2022-06-22",
+							"description": "Date should be in defined format Eg: YYYY-MM-DD",
+							"disabled": true
+						},
+						{
+							"key": "format",
+							"value": "csv",
+							"description": "Supported formats:  JSON/XML/CSV. Default format: JSON"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
